@@ -1,0 +1,83 @@
+{%  extends 'report/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="row">
+			<div class="col-md-12">
+				
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Location</th>
+							<th>WTG</th>
+							<th>GE Number</th>
+							<th>Inspector</th>
+							<th>Inspector</th>
+						</tr>
+						
+						
+						<tr>
+						<td>{{operation.location}}</td>
+						<td>{{operation.blade_number}}</td>
+						<td>{{operation.wtg_id}}</td>
+						<td>{{operation.name_1}}</td>
+						<td>{{operation.name_2}}</td>
+        				</tr>
+						
+					</table>
+				</div>
+			</div>
+
+
+
+
+		<br>
+		<h1>DETAILS</h1>
+		<br>
+{% for i in inspection%}
+	<div class="row">
+			<div class="col-md-3">
+				
+				<div class="card card-body">
+					
+						
+							<p>Damage ID: {{i.damage_id}} </p>
+							<p>Area: {{i.area}}</p>
+							<p>Description: {{i.decription}}</p>
+							<p>Category: {{i.category}}</p>
+							<p>Comments : {{i.comments}}</p>
+							
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				
+				<div class="card card-body">
+						<div class="card card-body">
+						<p><img class="img-fluid" src="{{ post.photo.cdn_url }}-/crop/600x600/center/-/quality/lightest/" alt=""></div></p>
+						</div>
+						
+        		</div>
+        	</div>
+				
+			<div class="col-md-3">
+				
+				<div class="card card-body">
+						<div class="card card-body">
+						<p><img class="d-block w-100" src="{{i.image_2.url}}"></p>
+						</div>
+						
+        		</div>
+
+        	</div>
+	</div>
+	<hr>
+			{% endfor %}
+</div>
+
+
+
+
+{% endblock content %}

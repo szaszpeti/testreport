@@ -1,0 +1,76 @@
+{%  extends 'report/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+	<div class="card card-body">
+
+		<br>
+		<h2>Inspections for Blade {{blade}}</h2>
+		<br>
+{% for i in inspection%}
+	<div class="row">
+			<div class="col-md-4">
+				
+				<div class="card card-body">
+					
+						
+							<p>Damage ID: {{i.damage_id}} </p>
+							<p>Area: {{i.area}}</p>
+							<p>Description: {{i.decription}}</p>
+							<p>Category: {{i.category}}</p>
+							<p>Comments : {{i.comments}}</p>
+							<div class="row">
+								
+									<div class="col-md-4">
+							<a class="btn btn-info btn-sm" href="{% url 'update_inspection' i.id%}">Update</a>
+						</div>
+					
+
+					
+						<div class="col-md-4">
+							<a class="btn btn-danger btn-sm" href="{% url 'delete_inspection' i.id%}">Delete</a>
+						</div>
+
+
+							</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				
+				<div class="card card-body">
+					
+						<img class="img-fluid" src="{{ i.image_1.cdn_url }}" alt="">
+						
+						</div>
+						
+        		</div>
+
+        		<div class="col-md-3">
+				
+				<div class="card card-body">
+						
+						<img class="img-fluid" src="{{ i.image_2.cdn_url }}" alt="">
+						
+						</div>
+						
+        		</div>
+        	</div>
+				
+			
+		{% endfor %}
+        	</div>
+        	</div>
+	
+	
+
+
+
+
+
+{% endblock content %}

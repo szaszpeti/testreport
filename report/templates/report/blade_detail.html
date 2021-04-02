@@ -1,0 +1,52 @@
+{%  extends 'report/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+		<h1>TURBINE - {{operation.wtg_id}}</h1>
+		<br>
+
+	<div class="row">
+		{% for blade in blades%}
+			<div class="col-md-4">
+				
+				<div class="card card-body">
+					<p>{{blade}}</p>
+					<div class="row">
+						
+						<div class="col-md-2">
+					<a href="{% url 'inspection_detail' blade.id%}"><i class="fas fa-arrow-alt-circle-right"></i></a>
+					
+						</div>
+
+					<div class="col-md-2">
+					<a  href="{% url 'create_inspection' blade.id%}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+					
+					</div>
+
+					<div class="col-md-2">
+					<a href="{% url 'delete_blade' blade.id%}"><i class="fas fa-trash"></i></a>
+					</div>
+					
+					<div class="col-md-2">
+					
+					<a href="{% url 'update_blade' blade.id%}"><i class="fas fa-cog"></i></a>
+					</div>
+					
+
+						</div>
+				</div>
+				</div>
+
+
+			
+			{% endfor %}
+						
+				
+			
+</div>
+
+
+
+{% endblock content %}

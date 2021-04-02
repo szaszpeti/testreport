@@ -1,0 +1,31 @@
+{%  extends 'report/main.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<title>Instagrid</title>
+{{form.media}}
+
+  
+
+<br>
+<div class="container"></div>
+<div class="row">
+	<div class="col-md-5">
+		<div class="card card-body">
+		
+		 <form action="" method="post">
+  {% csrf_token %}
+ {{form|crispy}}
+
+  <input type="submit" value="Save"/>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
